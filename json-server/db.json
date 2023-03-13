@@ -1,29 +1,38 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "json-server",
-      "userId": 1
+      "userId": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "json-server",
-      "userId": 2
+      "userId": "2"
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "body": "some comment",
-      "postId": 1
+      "postId": "1"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "Eugen",
+    "lastname": "Zgirdan",
+    "age": 22,
+    "currency": "USD",
+    "country": "Russia",
+    "city": "Kudma",
+    "username": "admin",
+    "avatar": "https://sun9-47.userapi.com/s/v1/ig2/_BWbne-mZJwddZo7ZGv_miaESH5mBTxlIuHeMl_9Z_eN2Dna-qa5d64pLqIrHR2SJmwoIdFZEe1K6T0_RR-dk_j6.jpg?size=400x400&quality=96&crop=649,438,1106,1106&ava=1"
+  }
 }

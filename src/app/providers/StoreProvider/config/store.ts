@@ -27,3 +27,5 @@ export function createReduxStore(
 
     return store;
 }
+// store на прямую не могу использовать, поэтому беру тип от креатРедакс и в квадратных скобках указываю свойство нужное
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
