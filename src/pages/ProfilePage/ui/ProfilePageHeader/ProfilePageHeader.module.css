@@ -1,0 +1,15 @@
+.ProfilePageHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.ProfilePageHeader .editBtn {
+  margin-left: auto;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/*# sourceMappingURL=ProfilePageHeader.module.css.map */

@@ -3,19 +3,15 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.data{
-  margin-top: 30px;
-}
 
-.editBtn{
-  margin-left: auto;
-
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-}
 .input{
   margin-top: 10px;
+}
+
+.loading,
+.error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
 }

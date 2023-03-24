@@ -1,5 +1,11 @@
 {
   "Страница пользователя": "Profile page",
   "Профиль": "Profile",
-  "Редактировать": "Edit"
+  "Редактировать": "Edit",
+  "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile",
+  "Попробуйте перезагрузить страницу": "Try to reload the page",
+  "Ваше имя": "First name",
+  "Ваша фамилия": "Last name",
+  "Отменить": "Cancel",
+  "Сохранить": "Save"
 }
