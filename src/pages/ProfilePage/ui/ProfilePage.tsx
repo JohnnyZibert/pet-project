@@ -9,6 +9,8 @@ import {
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country/model/types/country';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -40,7 +42,23 @@ const ProfilePage = memo(() => {
     }, [dispatch]);
 
     const onChangeCity = useCallback((value: string) => {
-        dispatch(profileActions.updateProfileData({ city: value }));
+        dispatch(profileActions.updateProfileData({ city: value || '' }));
+    }, [dispatch]);
+
+    const onChangeUsername = useCallback((value: string) => {
+        dispatch(profileActions.updateProfileData({ username: value || '' }));
+    }, [dispatch]);
+
+    const onChangeAvatar = useCallback((value: string) => {
+        dispatch(profileActions.updateProfileData({ avatar: value || '' }));
+    }, [dispatch]);
+
+    const onChangeCurrency = useCallback((currency: Currency) => {
+        dispatch(profileActions.updateProfileData({ currency }));
+    }, [dispatch]);
+
+    const onChangeCountry = useCallback((country: Country) => {
+        dispatch(profileActions.updateProfileData({ country }));
     }, [dispatch]);
 
     return (
@@ -56,6 +74,10 @@ const ProfilePage = memo(() => {
                     readonly={readonly}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
             </div>
         </DynamicModuleLoader>
