@@ -7,7 +7,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
-import { Profile } from '../../model/types/profile';
+import { Profile } from 'entities/Profile';
 import cls from './ProfileCard.module.scss';
 
 export interface ProfileCardProps {
@@ -76,7 +76,7 @@ export const ProfileCard = (props:ProfileCardProps) => {
                     </div>
                 )}
                 <Input
-                    value={data?.firstname}
+                    value={data?.first}
                     placeholder={t('Ваше имя')}
                     className={cls.input}
                     onChange={onChangeFirstname}
