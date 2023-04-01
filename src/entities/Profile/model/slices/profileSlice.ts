@@ -30,12 +30,6 @@ export const profileSlice = createSlice({
                 ...payload,
             };
         },
-        saveProfileData: (state, { payload }: PayloadAction<Profile>) => {
-            state.form = {
-                ...state.form,
-                ...payload,
-            };
-        },
     },
     extraReducers: (builder) => {
         builder
