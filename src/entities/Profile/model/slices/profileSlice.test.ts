@@ -47,7 +47,7 @@ describe('profile.test', () => {
                 form: { first: '1234556' },
             });
     });
-    test('test set fetchProfileData pending', () => {
+    test('test set  pending', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false, validateErrors: [ValidateProfileError.SERVER_ERROR],
         };
@@ -59,7 +59,7 @@ describe('profile.test', () => {
                 isLoading: true, validateErrors: undefined,
             });
     });
-    test('test set fetchProfileData fulfilled', () => {
+    test('test set fetch update form fulfilled', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: true,
         };
@@ -71,7 +71,7 @@ describe('profile.test', () => {
                 isLoading: false, validateErrors: undefined, form: data, data, readonly: true,
             });
     });
-    test('test set fetchProfileData fulfilled', () => {
+    test('test set fetch update form fulfilled', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: true,
             validateErrors: undefined,

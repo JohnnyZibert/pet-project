@@ -1,8 +1,16 @@
 .app_violet_theme {
-    --bg-color: #F8F4FB;
+    --bg-color: #f8f4fb;
     --inverted-bg-color: #9411ff;
     --primary-color: #09070c;
-    --secondary-color: #0008E6;
-    --inverted-primary-color: #F8F4FB;
-    --inverted-secondary-color: #F8F4FB;
+    --secondary-color: #0008e6;
+    --inverted-primary-color: #f8f4fb;
+    --inverted-secondary-color: #f8f4fb;
+
+    // skeleton
+    --skeleton-color: #fff;
+    --skeleton-shadow: rgba(0 0 0 / 20%);
+
+    //
+    --code-bg: #d8d8e0
+;
 }

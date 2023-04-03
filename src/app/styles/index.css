@@ -39,6 +39,9 @@ select {
   --secondary-color: #0449e0;
   --inverted-primary-color: #04ff04;
   --inverted-secondary-color: #049604;
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+  --code-bg: #d8d8e0 ;
 }
 
 .app_dark_theme {
@@ -48,15 +51,21 @@ select {
   --secondary-color: #049604;
   --inverted-primary-color: #0232c2;
   --inverted-secondary-color: #0452ff;
+  --skeleton-color: #1515ad;
+  --skeleton-shadow: #2b2be8;
+  --code-bg: #1818b2 ;
 }
 
 .app_violet_theme {
-  --bg-color: #F8F4FB;
+  --bg-color: #f8f4fb;
   --inverted-bg-color: #9411ff;
   --primary-color: #09070c;
-  --secondary-color: #0008E6;
-  --inverted-primary-color: #F8F4FB;
-  --inverted-secondary-color: #F8F4FB;
+  --secondary-color: #0008e6;
+  --inverted-primary-color: #f8f4fb;
+  --inverted-secondary-color: #f8f4fb;
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+  --code-bg: #d8d8e0 ;
 }
 
 .app,
@@ -76,7 +85,10 @@ select {
 
 .page-wrapper {
   flex-grow: 1;
-  padding: 20px;
+  padding: 20px 20px 20px 45px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
+  width: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,18 +1,20 @@
-.Wrapper{
-  display: flex;
-}
-.label {
-  margin-right: 5px;
-}
-.select{
-  background: none;
-  outline: none;
-  padding:2px 10px 2px 2px;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+.Wrapper {
+    display: flex;
 }
 
-.options{
-  color: var(--inverted-primary-color);
-  background: var(--inverted-bg-color);
+.label {
+    margin-right: 5px;
+}
+
+.select {
+    background: none;
+    outline: none;
+    padding: 2px 10px 2px 2px;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.options {
+    color: var(--inverted-primary-color);
+    background: var(--inverted-bg-color);
 }

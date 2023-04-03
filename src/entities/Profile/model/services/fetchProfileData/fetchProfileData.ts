@@ -4,7 +4,7 @@ import { Profile } from '../../types/profileErrors';
 
 export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>
     >(
-        'profileSlice/fetchProfileData',
+        'profileSlice/fetchArticleDetailesById',
         async (_, { extra, rejectWithValue }) => {
             try {
                 const response = await extra.api.get<Profile>('/profile');
