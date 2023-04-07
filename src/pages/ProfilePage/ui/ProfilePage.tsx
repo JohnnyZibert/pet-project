@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicLoaderModule/DynamicLoaderModule';
 import {
     fetchProfileData,
@@ -17,6 +17,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialUseEffect } from 'shared/lib/initialUseEffect/initialUseEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -31,6 +33,7 @@ const ProfilePage = memo(() => {
     const validateErrors = useSelector(getValidateError);
     const dispatch = useAppDispatch();
     const { t } = useTranslation('profile');
+    const { id } = useParams<{id: string}>();
 
     const validateErrorsTranslation = {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
@@ -40,11 +43,11 @@ const ProfilePage = memo(() => {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранинии'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialUseEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfileData({ first: value || '' }));

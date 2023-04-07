@@ -71,7 +71,7 @@ describe('profile.test', () => {
                 isLoading: false, validateErrors: undefined, form: data, data, readonly: true,
             });
     });
-    test('test set fetch update form fulfilled', () => {
+    test('test set fetch update form rejected', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: true,
             validateErrors: undefined,

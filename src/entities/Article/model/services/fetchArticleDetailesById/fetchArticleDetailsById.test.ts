@@ -1,5 +1,4 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { fetchProfileData } from 'entities/Profile';
 import {
     fetchArticleDetailsById,
 } from 'entities/Article/model/services/fetchArticleDetailesById/fetchArticleDetailsById';
@@ -8,7 +7,7 @@ const data = {
     id: '1',
     title: 'Javascript news',
 };
-describe('fetchArticleDetailsById.test', () => {
+describe('sendCommentRequest.test', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(fetchArticleDetailsById);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));

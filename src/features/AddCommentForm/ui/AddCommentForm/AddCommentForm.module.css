@@ -1,0 +1,13 @@
+.AddCommentForm {
+  border: 1px solid var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.input {
+  flex-grow: 1;
+}
+
+/*# sourceMappingURL=AddCommentForm.module.css.map */

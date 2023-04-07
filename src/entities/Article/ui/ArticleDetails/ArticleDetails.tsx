@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicLoaderModule/DynamicLoaderModule';
@@ -15,6 +15,7 @@ import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/art
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { useInitialUseEffect } from 'shared/lib/initialUseEffect/initialUseEffect';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -73,11 +74,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleDetailsById(id));
-        }
-    }, [dispatch, id]);
+    useInitialUseEffect(() => {
+        dispatch(fetchArticleDetailsById(id));
+    });
 
     let content;
 

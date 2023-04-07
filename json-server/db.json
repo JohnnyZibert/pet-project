@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -82,7 +84,6 @@
       ]
     }
   ],
-
   "comments": [
     {
       "id": "1",
@@ -107,6 +108,36 @@
       "text": "some comment",
       "postId": "4",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aloalo",
+      "id": "1bL3R4a"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "kuku",
+      "id": "9F8rOhr"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "awdawd",
+      "id": "UpznKQL"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Привет",
+      "id": "L33o83j"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "adawdawd",
+      "id": "rLbXZRB"
     }
   ],
   "users": [
@@ -114,23 +145,39 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://sun9-47.userapi.com/impg/QTxcrVBMxh3cBPHstiCN3dJOGjnn2EeSS9vu8g/6SkJE-82dOo.jpg?size=2500x1668&quality=96&sign=e2049eeeef3bb4df8fc452c2a05600e1&type=album"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://sun1.megafon-nn.userapi.com/impg/1eGfLnaRFxojl0j6lfFZOmKm5WSDco0t3a-SQg/ZzugGbmbhfY.jpg?size=1765x2160&quality=95&sign=ba27a494e7186c14868a34ede45adc82&type=album"
     }
   ],
-  "profile": {
-    "first": "Евгений",
-    "lastname": "Згирдан",
-    "age": 26,
-    "currency": "USD",
-    "country": "GEORGIA",
-    "city": "Нижний Новгород",
-    "username": "zgirdan",
-    "avatar": "https://sun9-47.userapi.com/s/v1/ig2/_BWbne-mZJwddZo7ZGv_miaESH5mBTxlIuHeMl_9Z_eN2Dna-qa5d64pLqIrHR2SJmwoIdFZEe1K6T0_RR-dk_j6.jpg?size=400x400&quality=96&crop=649,438,1106,1106&ava=1"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Евгений",
+      "lastname": "Згирдан",
+      "age": 26,
+      "currency": "USD",
+      "country": "GEORGIA",
+      "city": "Нижний Новгород",
+      "username": "zgirdan",
+      "avatar": "https://sun9-47.userapi.com/s/v1/ig2/_BWbne-mZJwddZo7ZGv_miaESH5mBTxlIuHeMl_9Z_eN2Dna-qa5d64pLqIrHR2SJmwoIdFZEe1K6T0_RR-dk_j6.jpg?size=400x400&quality=96&crop=649,438,1106,1106&ava=1"
+    },
+    {
+      "id": "2",
+      "first": "Дарья",
+      "lastname": "Чернева",
+      "age": 26,
+      "currency": "USD",
+      "country": "GEORGIA",
+      "city": "Нижний Новгород",
+      "username": "zgirdan",
+      "avatar": "https://sun1.megafon-nn.userapi.com/impg/1eGfLnaRFxojl0j6lfFZOmKm5WSDco0t3a-SQg/ZzugGbmbhfY.jpg?size=1765x2160&quality=95&sign=ba27a494e7186c14868a34ede45adc82&type=album"
+    }
+  ]
 }

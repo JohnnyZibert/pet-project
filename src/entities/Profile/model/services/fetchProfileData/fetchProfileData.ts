@@ -2,12 +2,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import { Profile } from '../../types/profileErrors';
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>
+export const fetchProfileData = createAsyncThunk<Profile, string, ThunkConfig<string>
     >(
-        'profileSlice/fetchArticleDetailesById',
-        async (_, { extra, rejectWithValue }) => {
+        'profileSlice/fetchProfileData',
+        async (profileId, { extra, rejectWithValue }) => {
             try {
-                const response = await extra.api.get<Profile>('/profile');
+                const response = await extra.api.get<Profile>(`/profile/${profileId}`);
 
                 if (!response.data) {
                     throw new Error();
@@ -15,7 +15,6 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
 
                 return response.data;
             } catch (e) {
-                console.log(e);
                 return rejectWithValue('error');
             }
         },
