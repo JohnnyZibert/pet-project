@@ -41,7 +41,8 @@ select {
   --inverted-secondary-color: #049604;
   --skeleton-color: #fff;
   --skeleton-shadow: rgba(0 0 0 / 20%);
-  --code-bg: #d8d8e0 ;
+  --code-bg: #d8d8e0;
+  --bg-card: #cfcfd3;
 }
 
 .app_dark_theme {
@@ -53,7 +54,8 @@ select {
   --inverted-secondary-color: #0452ff;
   --skeleton-color: #1515ad;
   --skeleton-shadow: #2b2be8;
-  --code-bg: #1818b2 ;
+  --code-bg: #1818b2;
+  --bg-card: #0e0e6e;
 }
 
 .app_violet_theme {
@@ -65,7 +67,8 @@ select {
   --inverted-secondary-color: #f8f4fb;
   --skeleton-color: #fff;
   --skeleton-shadow: rgba(0 0 0 / 20%);
-  --code-bg: #d8d8e0 ;
+  --code-bg: #d8d8e0;
+  --bg-card: #cfcfd3;
 }
 
 .app,
