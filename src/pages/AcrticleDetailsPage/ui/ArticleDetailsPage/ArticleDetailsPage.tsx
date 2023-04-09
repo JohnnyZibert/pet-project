@@ -22,14 +22,14 @@ import {
     getArticleCommentsIsLoading,
 } from '../../model/selectors/commentsSelectors';
 import cls from './ArticleDetailsPage.module.scss';
-import { ArticleDetailsCommentReducer, getArticleCommentSelector } from '../../model/slice/ArticleDetailsCommentSlice';
+import { articleDetailsCommentReducer, getArticleCommentSelector } from '../../model/slice/ArticleDetailsCommentSlice';
 
 export interface ArticleDetailsPageProps {
     className?: string
 }
 
 const reducer: ReducersList = {
-    articleDetailsComments: ArticleDetailsCommentReducer,
+    articleDetailsComments: articleDetailsCommentReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {

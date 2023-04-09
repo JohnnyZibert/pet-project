@@ -3,5 +3,5 @@ import { AddCommentFormProps } from 'features/AddCommentForm/ui/AddCommentForm/A
 
 export const AddCommentFormAsync = lazy<FC<AddCommentFormProps>>(() => new Promise((resolve) => {
     // @ts-ignore
-    setTimeout(() => resolve(import('./AddCommentForm')), 1500);
+    setTimeout(() => resolve(import('./AddCommentForm')), 400);
 }));

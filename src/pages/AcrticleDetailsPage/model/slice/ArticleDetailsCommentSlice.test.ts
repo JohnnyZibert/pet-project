@@ -1,5 +1,5 @@
 import { ArticleDetailsCommentsSchema } from 'pages/AcrticleDetailsPage';
-import { ArticleDetailsCommentReducer } from 'pages/AcrticleDetailsPage/model/slice/ArticleDetailsCommentSlice';
+import { articleDetailsCommentReducer } from 'pages/AcrticleDetailsPage/model/slice/ArticleDetailsCommentSlice';
 import {
     fetchCommentsByArticleId,
 } from 'pages/AcrticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -31,7 +31,7 @@ describe('Article details comment slice tests', () => {
         const state: DeepPartial<ArticleDetailsCommentsSchema> = {
             isLoading: false, error: undefined, ids: [], entities: {},
         };
-        expect(ArticleDetailsCommentReducer(
+        expect(articleDetailsCommentReducer(
             state as ArticleDetailsCommentsSchema,
             fetchCommentsByArticleId.pending,
         ))
@@ -43,7 +43,7 @@ describe('Article details comment slice tests', () => {
         const state: DeepPartial<ArticleDetailsCommentsSchema> = {
             isLoading: true, error: undefined, ids: [], entities: {},
         };
-        expect(ArticleDetailsCommentReducer(
+        expect(articleDetailsCommentReducer(
             state as ArticleDetailsCommentsSchema,
             fetchCommentsByArticleId.fulfilled(articleId, 'user', ''),
         ))
@@ -58,7 +58,7 @@ describe('Article details comment slice tests', () => {
         const state: DeepPartial<ArticleDetailsCommentsSchema> = {
             isLoading: true, error: undefined, ids: [], entities: {},
         };
-        expect(ArticleDetailsCommentReducer(
+        expect(articleDetailsCommentReducer(
             state as ArticleDetailsCommentsSchema,
             fetchCommentsByArticleId.rejected,
         ))
