@@ -1,12 +1,9 @@
-import {
-    createEntityAdapter,
-    createSlice, PayloadAction,
-} from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Articles, ArticleView } from 'entities/Article';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { fetchArticles } from '../../model/services/articlePageRequest';
+import { fetchArticles } from '../services/articlePageRequest/articlePageRequest';
 
 export const articlePageAdapter = createEntityAdapter<Articles>({
     selectId: (article) => article.id,
@@ -23,14 +20,22 @@ const ArticlePageSlice = createSlice({
         ids: [],
         entities: {},
         view: ArticleView.SMALL,
+        page: 1,
+        hasMore: true,
+        _inited: false,
     }),
     reducers: {
         setView: (state, { payload }: PayloadAction<ArticleView>) => {
             state.view = payload;
             localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, payload);
         },
+        setPage: (state, { payload }: PayloadAction<number>) => {
+            state.page = payload;
+        },
         setInitialView: (state) => {
-            state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            state.view = view;
+            state.limit = view === ArticleView.BIG ? 4 : 12;
         },
     },
     extraReducers: (builder) => {
@@ -42,7 +47,9 @@ const ArticlePageSlice = createSlice({
             .addCase(fetchArticles.fulfilled, (state, { payload }
                     : PayloadAction<Articles[]>) => {
                 state.isLoading = false;
-                articlePageAdapter.setAll(state, payload);
+                articlePageAdapter.addMany(state, payload);
+                state.hasMore = payload.length > 0;
+                state._inited = true;
             })
             .addCase(fetchArticles.rejected, (state, action) => {
                 state.isLoading = false;

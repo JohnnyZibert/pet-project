@@ -27,14 +27,6 @@ export const ArticlesList = (props: ArticlesListProps) => {
     } = props;
     const { t } = useTranslation();
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticlesList, {}, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: Articles) => (
         <ArticlesListItem
             key={`${article.id}${article.createdAt}`}
@@ -52,6 +44,7 @@ export const ArticlesList = (props: ArticlesListProps) => {
         )}
         >
             {articles.length > 0 ? articles.map(renderArticle) : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 };
