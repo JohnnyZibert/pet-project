@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/articlePageRequest/articlePageRequest';
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextPage/fetchNextPage';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicLoaderModule/DynamicLoaderModule';

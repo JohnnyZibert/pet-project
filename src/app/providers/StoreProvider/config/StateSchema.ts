@@ -12,9 +12,11 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/AcrticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm/model/types/addCommentFormSchema';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
+import { SaveScrollSchema } from 'features/SaveScrollPosition/model/types/SaveScrollSchema';
 
 export interface StateSchema {
     user: UserSchema;
+    scrollPosition: SaveScrollSchema
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema;
