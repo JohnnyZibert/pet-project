@@ -1,26 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
-import {
-    getArticleHasMore,
-    getArticleIsLoading,
-    getArticlePage,
-} from '../../selectors/articlePageSelectors';
-import { articlePageActions } from '../../slice/ArticlesPageSlice';
-import { fetchArticles } from '../../services/articlePageRequest/articlePageRequest';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 
-export const fetchNextPage = createAsyncThunk<void, void, ThunkConfig<string>
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/articlePageRequest/articlePageRequest';
+import { articlesPageActions } from 'pages/ArticlesPage/model/slice/ArticlesPageSlice';
+import {
+    getArticlesPageHasMore, getArticlesPageNum, getArticlesPageIsLoading,
+} from 'pages/ArticlesPage/model/selectors/articlePageSelectors';
+
+export const fetchNextArticlesPage = createAsyncThunk<
+    void,
+    void,
+    ThunkConfig<string>
     >(
-        'ArticlePageSlice/fetchNextPage',
-        async (_, {
-            extra, rejectWithValue, getState, dispatch,
-        }) => {
-            const page = getArticlePage(getState());
-            const hasMore = getArticleHasMore(getState());
-            const isLoading = getArticleIsLoading(getState());
+        'ArticlePageSlice/fetchNextArticlesPage',
+        async (_, thunkApi) => {
+            const { getState, dispatch } = thunkApi;
+            const hasMore = getArticlesPageHasMore(getState());
+            const page = getArticlesPageNum(getState());
+            const isLoading = getArticlesPageIsLoading(getState());
 
             if (hasMore && !isLoading) {
-                dispatch(articlePageActions.setPage(page + 1));
-                dispatch(fetchArticles({ page: page + 1 }));
+                dispatch(articlesPageActions.setPage(page + 1));
+                dispatch(fetchArticlesList({
+                    page: page + 1,
+                }));
             }
         },
     );

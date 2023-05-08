@@ -11,14 +11,14 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
-    ArticleBlockType, Articles, ArticleTextBlock, ArticleView,
+    ArticleBlockType, Article, ArticleTextBlock, ArticleView,
 } from '../../model/types/article';
 import cls from './ArticlesListItem.module.scss';
 
 export interface ArticlesListItemProps {
     className?: string
     view: ArticleView
-    article: Articles
+    article: Article
 }
 
 export const ArticlesListItem = (props: ArticlesListItemProps) => {

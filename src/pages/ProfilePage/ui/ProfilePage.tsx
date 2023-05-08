@@ -11,13 +11,13 @@ import {
     ProfileCard,
     profileReducer, ValidateProfileError,
 } from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { useInitialUseEffect } from 'shared/lib/initialUseEffect/initialUseEffect';
+import { useInitialEffect } from 'shared/lib/hooks/initialUseEffect/initialUseEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -44,7 +44,7 @@ const ProfilePage = memo(() => {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранинии'),
     };
 
-    useInitialUseEffect(() => {
+    useInitialEffect(() => {
         if (id) {
             dispatch(fetchProfileData(id));
         }

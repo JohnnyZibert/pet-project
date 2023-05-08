@@ -1,13 +1,13 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ArticleView } from 'entities/Article';
-import { fetchArticles } from '../../services/articlePageRequest/articlePageRequest';
-import { fetchNextPage } from './fetchNextPage';
+import { fetchArticlesList } from '../../services/articlePageRequest/articlePageRequest';
+import { fetchNextArticlesPage } from './fetchNextPage';
 
 jest.mock('../../services/articlePageRequest/articlePageRequest');
 
-describe('fetchNextPage', () => {
+describe('fetchArticlesList', () => {
     test('success', async () => {
-        const thunk = new TestAsyncThunk(fetchNextPage, {
+        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
             articlePage: {
                 page: 2,
                 ids: [],
@@ -23,10 +23,10 @@ describe('fetchNextPage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticles).toBeCalledWith({ page: 3 });
+        expect(fetchArticlesList).toBeCalledWith({ page: 3 });
     });
     test('fetch article con called', async () => {
-        const thunk = new TestAsyncThunk(fetchNextPage, {
+        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
             articlePage: {
                 page: 2,
                 ids: [],
@@ -42,10 +42,10 @@ describe('fetchNextPage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticles).not.toHaveBeenCalled();
+        expect(fetchArticlesList).not.toHaveBeenCalled();
     });
     test('fetch article con called', async () => {
-        const thunk = new TestAsyncThunk(fetchNextPage, {
+        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
             articlePage: {
                 page: 2,
                 ids: [],
@@ -61,6 +61,6 @@ describe('fetchNextPage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticles).not.toHaveBeenCalled();
+        expect(fetchArticlesList).not.toHaveBeenCalled();
     });
 });

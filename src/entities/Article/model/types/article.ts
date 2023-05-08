@@ -39,7 +39,7 @@ export enum ArticleTypes {
     ECONOMICS = 'ECONOMICS',
 }
 
-export interface Articles {
+export interface Article {
     id: string
     user: User
     title: string

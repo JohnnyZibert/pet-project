@@ -6,4 +6,8 @@
   flex-shrink: 100;
 }
 
+.triggerEl {
+  visibility: hidden;
+}
+
 /*# sourceMappingURL=Page.module.css.map */

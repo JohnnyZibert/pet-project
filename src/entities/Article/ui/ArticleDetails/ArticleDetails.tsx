@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicLoaderModule/DynamicLoaderModule';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     fetchArticleDetailsById,
 } from 'entities/Article/model/services/fetchArticleDetailesById/fetchArticleDetailsById';
@@ -15,7 +15,7 @@ import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/art
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { useInitialUseEffect } from 'shared/lib/initialUseEffect/initialUseEffect';
+import { useInitialEffect } from 'shared/lib/hooks/initialUseEffect/initialUseEffect';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -74,7 +74,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         }
     }, []);
 
-    useInitialUseEffect(() => {
+    useInitialEffect(() => {
         dispatch(fetchArticleDetailsById(id));
     });
 

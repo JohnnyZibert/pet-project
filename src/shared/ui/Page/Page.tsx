@@ -1,29 +1,34 @@
-import React, { MutableRefObject, ReactNode, useRef } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { IseInfiniteScroll } from 'shared/lib/hooks/iseInfiniteScroll';
+import {
+    memo, MutableRefObject, ReactNode, useRef,
+} from 'react';
+import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import cls from './Page.module.scss';
 
-export interface PageProps {
-    className?: string
-    children: ReactNode
-    onScrollEnd?: ()=> void
+interface PageProps {
+    className?: string;
+    children: ReactNode;
+    onScrollEnd?: () => void;
 }
 
-export const Page = (props: PageProps) => {
+export const Page = memo((props: PageProps) => {
     const { className, children, onScrollEnd } = props;
-    const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
+    const wrapperRef = useRef() as MutableRefObject<HTMLTableSectionElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-    IseInfiniteScroll({
+    useInfiniteScroll({
         wrapperRef,
         triggerRef,
         callback: onScrollEnd,
     });
 
     return (
-        <section ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+        <section
+            ref={wrapperRef}
+            className={classNames(cls.Page, {}, [className])}
+        >
             {children}
-            <div ref={triggerRef} />
+            <div ref={triggerRef} className={cls.triggerEl}>triggerScroll</div>
         </section>
     );
-};
+});

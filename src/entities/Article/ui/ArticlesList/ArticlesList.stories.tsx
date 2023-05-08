@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ArticlesList } from './ArticlesList';
-import { Articles, ArticleView } from '../../model/types/article';
+import { Article, ArticleView } from '../../model/types/article';
 
 const articles = {
     id: '1',
@@ -96,7 +96,7 @@ const articles = {
             ],
         },
     ],
-} as Articles;
+} as Article;
 
 export default {
     title: 'entities/Article/ArticlesList',

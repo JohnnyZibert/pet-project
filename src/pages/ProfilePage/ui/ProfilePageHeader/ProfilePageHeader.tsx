@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import {
     fetchUpdateData, getProfileData, getProfileReadonly, profileActions,
 } from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
 import cls from './ProfilePageHeader.module.scss';
 

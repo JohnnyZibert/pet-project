@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ArticleView } from 'entities/Article';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
-import { fetchArticles } from '../../services/articlePageRequest/articlePageRequest';
+import { fetchArticlesList } from '../../services/articlePageRequest/articlePageRequest';
 
 jest.mock('../../services/articlePageRequest/articlePageRequest');
 
@@ -24,7 +24,7 @@ describe('fetchNextPage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticles).not.toBeCalledWith();
+        expect(fetchArticlesList).not.toBeCalledWith();
     });
     test('fetch article not called', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
@@ -44,7 +44,7 @@ describe('fetchNextPage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticles).not.toHaveBeenCalled();
+        expect(fetchArticlesList).not.toHaveBeenCalled();
     });
     test('fetch article not called', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
@@ -64,6 +64,6 @@ describe('fetchNextPage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticles).toHaveBeenCalled();
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
 });

@@ -7,8 +7,8 @@ import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicLoaderModule/DynamicLoaderModule';
 import { useSelector } from 'react-redux';
-import { useInitialUseEffect } from 'shared/lib/initialUseEffect/initialUseEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/initialUseEffect/initialUseEffect';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Button } from 'shared/ui/Button/Button';
@@ -41,7 +41,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const navigate = useNavigate();
 
-    useInitialUseEffect(() => {
+    useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
     });
 

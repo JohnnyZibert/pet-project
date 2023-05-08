@@ -1,57 +1,60 @@
-import React, { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticlesList, ArticleView } from 'entities/Article';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicLoaderModule/DynamicLoaderModule';
+import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useInitialUseEffect } from 'shared/lib/initialUseEffect/initialUseEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { fetchArticles } from 'pages/ArticlesPage/model/services/articlePageRequest/articlePageRequest';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from 'shared/ui/Page/Page';
-import { fetchNextPage } from 'pages/ArticlesPage/model/services/fetchNextPage/fetchNextPage';
-import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/articlePageRequest/articlePageRequest';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextPage/fetchNextPage';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicLoaderModule/DynamicLoaderModule';
+import { articlesPageActions, articlesPageReducer, getArticles } from 'pages/ArticlesPage/model/slice/ArticlesPageSlice';
+import { ArticlesList, ArticleView } from 'entities/Article';
+import { useInitialEffect } from 'shared/lib/hooks/initialUseEffect/initialUseEffect';
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import {
-    getArticleHasInited,
-    getArticleIsLoading,
-    getArticleView,
+    getArticlesPageError,
+    getArticlesPageIsLoading,
+    getArticlesPageView,
 } from '../../model/selectors/articlePageSelectors';
 import cls from './ArticlesPage.module.scss';
-import {
-    articlePageActions, articlePageSliceReducer,
-    getArticle,
-} from '../../model/slice/ArticlesPageSlice';
 
-export interface ArticlePageProps {
-    className?: string
+interface ArticlesPageProps {
+    className?: string;
 }
 
-const reducer: ReducersList = {
-    articlePage: articlePageSliceReducer,
+const reducers: ReducersList = {
+    articlePage: articlesPageReducer,
 };
 
-const ArticlesPage = ({ className }: ArticlePageProps) => {
-    const articles = useSelector(getArticle.selectAll);
-    const isLoading = useSelector(getArticleIsLoading);
-    const view = useSelector(getArticleView);
-    const inited = useSelector(getArticleHasInited);
+const ArticlesPage = (props: ArticlesPageProps) => {
+    const { className } = props;
+    const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const view = useSelector(getArticlesPageView);
+    const error = useSelector(getArticlesPageError);
+
     const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlePageActions.setView(view));
+        dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
 
-    const onLoadedNextPat = useCallback(() => {
-        dispatch(fetchNextPage());
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
-    useInitialUseEffect(() => {
-        dispatch(initArticlesPage());
+    useInitialEffect(() => {
+        dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({
+            page: 1,
+        }));
     });
 
     return (
-        <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
+        <DynamicModuleLoader reducers={reducers}>
             <Page
-                onScrollEnd={onLoadedNextPat}
-                className={classNames(cls.ArticlePage, {}, [className])}
+                onScrollEnd={onLoadNextPart}
+                className={classNames(cls.ArticlesPage, {}, [className])}
             >
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticlesList

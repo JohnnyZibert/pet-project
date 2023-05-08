@@ -3,12 +3,12 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticlesListSkeleton } from '../../ui/ArticlesListItem/ArticlesListSkeleton';
 import { ArticlesListItem } from '../../ui/ArticlesListItem/ArticlesListItem';
-import { Articles, ArticleView } from '../../model/types/article';
+import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticlesList.module.scss';
 
 export interface ArticlesListProps {
     className?: string
-    articles: Articles[]
+    articles: Article[]
     isLoading?: boolean
     view: ArticleView
 }
@@ -27,7 +27,7 @@ export const ArticlesList = (props: ArticlesListProps) => {
     } = props;
     const { t } = useTranslation();
 
-    const renderArticle = (article: Articles) => (
+    const renderArticle = (article: Article) => (
         <ArticlesListItem
             key={`${article.id}${article.createdAt}`}
             article={article}
