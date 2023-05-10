@@ -1,6 +1,7 @@
 import React from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { ArticlesListSkeleton } from '../../ui/ArticlesListItem/ArticlesListSkeleton';
 import { ArticlesListItem } from '../../ui/ArticlesListItem/ArticlesListItem';
 import { Article, ArticleView } from '../../model/types/article';
@@ -25,7 +26,20 @@ export const ArticlesList = (props: ArticlesListProps) => {
         view,
         isLoading,
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles');
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(
+                cls.articlesNotFound,
+                {},
+                [className, cls[view]],
+            )}
+            >
+                <Text title={t('Статьи не найдены')} size={TextSize.L} />
+            </div>
+        );
+    }
 
     const renderArticle = (article: Article) => (
         <ArticlesListItem

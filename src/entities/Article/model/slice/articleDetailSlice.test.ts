@@ -1,11 +1,8 @@
-import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleBlock, ArticleDetailsSchema, ArticleTypes } from 'entities/Article';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailSlice';
 import {
     fetchArticleDetailsById,
 } from 'entities/Article/model/services/fetchArticleDetailesById/fetchArticleDetailsById';
-import {
-    ArticleBlock, ArticleTypes,
-} from 'entities/Article/model/types/article';
 
 describe('articleDetail.test', () => {
     const data = {

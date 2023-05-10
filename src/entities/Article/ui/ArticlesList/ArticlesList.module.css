@@ -1,9 +1,17 @@
+.articlesNotFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.BIG .card {
+  margin-bottom: 30px;
+}
+
 .SMALL {
   display: flex;
   flex-wrap: wrap;
-}
-.SMALL .card {
-  margin-right: 30px;
+  gap: 30px;
 }
 
 /*# sourceMappingURL=ArticlesList.module.css.map */

@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SaveScrollPosition } from './SaveScrollPosition';
 
 export default {
-    title: 'shared/SaveScrollPosition',
+    title: 'features/SaveScrollPosition',
     component: SaveScrollPosition,
     argTypes: {
         backgroundColor: { control: 'color' },

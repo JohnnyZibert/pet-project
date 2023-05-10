@@ -1,0 +1,15 @@
+.sortWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  margin-top: 16px;
+}
+
+.tabs {
+  margin-top: 16px;
+}
+
+/*# sourceMappingURL=ArticlePageFilters.module.css.map */

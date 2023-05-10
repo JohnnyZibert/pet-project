@@ -5,14 +5,11 @@ export function useThrottle(callback:(...args: any[])=> void, delay: number) {
 
     return useCallback((...args: any[]) => {
         if (!throttleRef.current) {
-            console.log('scroll');
-
             callback(...args);
             throttleRef.current = true;
 
             setTimeout(() => {
                 throttleRef.current = false;
-                console.log(delay);
             }, delay);
         }
     }, [callback, delay]);

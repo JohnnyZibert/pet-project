@@ -1,0 +1,10 @@
+.Tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=Tabs.module.css.map */
