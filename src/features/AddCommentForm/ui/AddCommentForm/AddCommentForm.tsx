@@ -7,7 +7,6 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
-    getCommentErrorSelector,
     getCommentTextSelector,
 } from '../../model/selectors/AddCommentSelector';
 import cls from './AddCommentForm.module.scss';

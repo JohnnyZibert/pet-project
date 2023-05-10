@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -11,7 +11,8 @@ export interface ArticlesListProps {
     className?: string
     articles: Article[]
     isLoading?: boolean
-    view: ArticleView
+    view?: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView) => (new Array(view === ArticleView.SMALL ? 10 : 4)
@@ -23,8 +24,9 @@ export const ArticlesList = (props: ArticlesListProps) => {
     const {
         className,
         articles,
-        view,
+        view = ArticleView.SMALL,
         isLoading,
+        target,
     } = props;
     const { t } = useTranslation('articles');
 
@@ -47,6 +49,7 @@ export const ArticlesList = (props: ArticlesListProps) => {
             article={article}
             view={view}
             className={cls.card}
+            target={target}
         />
     );
 

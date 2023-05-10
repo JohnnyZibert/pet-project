@@ -3,6 +3,7 @@ import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import { CommentTypes } from 'entities/Comment';
 import { getUserAuthData } from 'entities/User';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleSelectors';
+import { getCommentTextSelector } from 'features/AddCommentForm/model/selectors/AddCommentSelector';
 import {
     fetchCommentsByArticleId,
 } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -13,11 +14,12 @@ export const addCommentForArticles = createAsyncThunk<
     ThunkConfig<string>
     >(
         'articleDetailsCommentSlice/addCommentForArticles',
-        async (text, {
+        async (_, {
             extra, rejectWithValue, getState, dispatch,
         }) => {
             const userData = getUserAuthData(getState());
             const article = getArticleDetailsData(getState());
+            const text = getCommentTextSelector(getState());
 
             if (!userData || !text || !article) {
                 return rejectWithValue('no data');

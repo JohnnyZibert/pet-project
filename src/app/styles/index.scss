@@ -18,3 +18,17 @@
 .content-page {
     display: flex;
 }
+
+*::-webkit-scrollbar {
+    width: 12px;           //ширина скроллбар
+    height: 8px;
+}
+*::-webkit-scrollbar-track {
+    background: var(--inverted-primary-color);            //цвет дорожки
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--bg-card);  //стили плашки
+    border-radius: 20px;
+    border-right: 2px solid var(--primary-color);
+}
+

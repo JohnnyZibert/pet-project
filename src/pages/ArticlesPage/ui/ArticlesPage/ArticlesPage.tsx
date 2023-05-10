@@ -10,7 +10,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import {
     articlesPageActions, articlesPageReducer, getArticles,
 } from 'pages/ArticlesPage/model/slice/ArticlesPageSlice';
-import { ArticlesList, ArticleView } from 'entities/Article';
+import { ArticlesList } from 'entities/Article';
 import { useInitialEffect } from 'shared/lib/hooks/initialUseEffect/initialUseEffect';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { ArticlePageFilters } from 'pages/ArticlesPage/ui/ArticlePageFilters/ArticlePageFilters';

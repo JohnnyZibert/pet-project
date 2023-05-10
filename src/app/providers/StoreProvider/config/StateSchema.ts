@@ -6,10 +6,12 @@ import {
 import { CombinedState } from 'redux';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { To } from 'react-router-dom';
-import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/AcrticleDetailsPage';
+import {
+    ArticleDetailsCommentsSchema,
+    ArticleDetailsRecommendationSchema,
+    ArticlesDetailsPageSchema,
+} from 'pages/AcrticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm/model/types/addCommentFormSchema';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { SaveScrollSchema } from 'features/SaveScrollPosition/model/types/SaveScrollSchema';
@@ -22,9 +24,9 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema
-    articleDetailsComments?: ArticleDetailsCommentsSchema
     addCommentForm?: AddCommentFormSchema
     articlePage?: ArticlePageSchema
+    articlesDetailsPage?: ArticlesDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

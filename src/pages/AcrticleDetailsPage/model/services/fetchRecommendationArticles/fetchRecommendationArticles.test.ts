@@ -1,10 +1,10 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import {
+    fetchArticleDetailsById,
+} from 'entities/Article/model/services/fetchArticleDetailesById/fetchArticleDetailsById';
+import {
     fetchCommentsByArticleId,
 } from 'pages/AcrticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import {
-    addCommentForArticles,
-} from 'pages/AcrticleDetailsPage/model/services/addCommentForArticles/addCommentForArticles';
 
 describe('fetchCommentsByArticleId', () => {
     const data = {
@@ -20,7 +20,7 @@ describe('fetchCommentsByArticleId', () => {
         },
     };
     test('success', async () => {
-        const thunk = new TestAsyncThunk(addCommentForArticles);
+        const thunk = new TestAsyncThunk(fetchCommentsByArticleId);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
         const result = await thunk.callThunk('1');
@@ -30,13 +30,13 @@ describe('fetchCommentsByArticleId', () => {
         expect(result.payload).toEqual(data);
     });
 
-    // test('error', async () => {
-    //     const thunk = new TestAsyncThunk(fetchArticleDetailsById);
-    //     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    //
-    //     const result = await thunk.callThunk('awd');
-    //
-    //     expect(thunk.api.get).toHaveBeenCalled();
-    //     expect(result.meta.requestStatus).toBe('rejected');
-    // });
+    test('error', async () => {
+        const thunk = new TestAsyncThunk(fetchArticleDetailsById);
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
+
+        const result = await thunk.callThunk('awd');
+
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('rejected');
+    });
 });

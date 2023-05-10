@@ -6,13 +6,14 @@ import { ReducersList } from 'shared/lib/components/DynamicLoaderModule/DynamicL
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailSlice';
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice';
 import { articleDetailsCommentReducer } from 'pages/AcrticleDetailsPage/model/slice/ArticleDetailsCommentSlice';
+import { articleDetailsPageReducer } from 'pages/AcrticleDetailsPage/model/slice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsComments: articleDetailsCommentReducer,
+    articlesDetailsPage: articleDetailsPageReducer,
 };
 
 export const StoreDecorator = (
