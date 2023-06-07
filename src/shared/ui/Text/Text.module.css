@@ -15,6 +15,13 @@
   color: var(--red-dark);
 }
 
+.inverted .title {
+  color: var(--inverted-primary-color);
+}
+.inverted .text {
+  color: var(--inverted-secondary-color);
+}
+
 .left {
   text-align: left;
 }
